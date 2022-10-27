@@ -206,7 +206,9 @@ class PFSolver:
         self.polycrystal.mesh.cell_data['ori_inds'] = [cell_ori_inds]
 
         # TODO: file save manager
-        # onp.save(os.path.join(self.pf_args['data_dir'], f"numpy/pf/sols/T_{step:03d}.npy"), T)
-        # onp.save(os.path.join(self.pf_args['data_dir'], f"numpy/pf/sols/cell_ori_inds_{step:03d}.npy"), cell_ori_inds)
+        numpy_sols_folder = os.path.join(self.pf_args['data_dir'], "numpy/pf/sols")
+        os.makedirs(numpy_sols_folder, exist_ok=True)
+        onp.save(os.path.join(self.pf_args['data_dir'], f"numpy/pf/sols/T_{step:03d}.npy"), T)
+        onp.save(os.path.join(self.pf_args['data_dir'], f"numpy/pf/sols/cell_ori_inds_{step:03d}.npy"), cell_ori_inds)
 
         self.polycrystal.mesh.write(os.path.join(self.pf_args['data_dir'], f"vtk/pf/sols/u{step:03d}.vtu"))
