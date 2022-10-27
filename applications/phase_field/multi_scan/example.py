@@ -25,7 +25,7 @@ def set_params():
     crt_file_path = os.path.dirname(__file__)
     pf_args = pf_parse(os.path.join(crt_file_path, 'pf_params.yaml'))
     id = pf_args['id']
-    pf_args['case'] = f"turnaround_{id}"
+    pf_args['case'] = "example"
     data_dir = os.path.join(crt_file_path, 'data', pf_args['case'])
     pf_args['data_dir'] = data_dir
     return pf_args
